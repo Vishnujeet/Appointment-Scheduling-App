@@ -1,0 +1,45 @@
+﻿services:
+  db:
+    image: postgres:16
+    restart: always
+    environment:
+      POSTGRES_DB: coding-challenge
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    volumes:
+      - db-data:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql  # ✅ Path remains the same since it's inside `build/`
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "postgres"]
+      interval: 10s
+      retries: 5
+
+  app:
+    build:
+      context: ..
+      dockerfile: Appointment.API/Dockerfile  # ✅ Ensure this correctly points to Dockerfile inside API folder
+    restart: always
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DOTNET_ENVIRONMENT: Development
+      ConnectionStrings__DefaultConnection: "Server=db;Port=5432;Database=coding-challenge;User Id=postgres;Password=${POSTGRES_PASSWORD};"
+    ports:
+      - "8080:8080"
+      - "8081:8081"
+
+  pgadmin:
+    image: dpage/pgadmin4
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@example.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "5050:80"
+
+volumes:
+  db-data:

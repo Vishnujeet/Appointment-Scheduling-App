@@ -1,0 +1,19 @@
+{
+    "version": 3,
+    "name": "Appointment Booking API Gateway",
+    "port": 8080,
+    "endpoints": [
+        {
+            "endpoint": "/appointments",
+            "method": "POST",
+            "backend": [
+                {
+                    "url_pattern": "/calendar/query",
+                    "host": [ "http://appointment_api:5000" ],
+                    "method": "POST",
+                    "encoding": "json"
+                }
+            ]
+        }
+    ]
+}
