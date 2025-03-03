@@ -22,9 +22,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Appointment.API\Appointment.API.csproj" />
-    <ProjectReference Include="..\..\..\Appointment.Common\Appointment.Common.csproj" />
-    <ProjectReference Include="..\..\..\Appointment.Domain\Appointment.Domain.csproj" />
+    <ProjectReference Include="..\..\Appointment.API\Appointment.API.csproj" />
+    <ProjectReference Include="..\..\Appointment.Common\Appointment.Common.csproj" />
+    <ProjectReference Include="..\..\Appointment.Domain\Appointment.Domain.csproj" />
+    <ProjectReference Include="..\..\Appointment.Infrastructure\Appointment.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

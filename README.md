@@ -1,19 +1,25 @@
 # 📅 Appointment Booking System
 
 ## 🚀 Overview
+
 This is a **backend API** for an **Appointment Booking System**, allowing customers to book appointments with sales managers based on language, product, and customer rating criteria.
 
 ### **Key Features**
-- 📅 Customers can book 1-hour appointment slots.
-- 🔍 API returns available appointment slots based on given filters.
-- 🗄️ Uses **PostgreSQL** for database storage.
-- 🔧 Built with **.NET 8** using **C#**.
-- 📏 Follows **SOLID Principles** and **Repository Pattern**.
-- ✅ Includes **Unit Tests** and **Integration Tests**.
+
+- 📅 **Customers can book 1-hour appointment slots.**
+- 🔍 **API returns available appointment slots based on given filters.**
+- 🗄️ **Uses PostgreSQL for database storage.**
+- 🔧 **Built with .NET 8 using C#.**
+- 📏 **Follows SOLID Principles and Repository Pattern.**
+- ✅ **Includes Unit Tests and Integration Tests.**
+- 🐳 **Production-ready using Docker and Docker Compose.**
 
 ---
+
 ## 🏗️ Architecture
+
 The system follows **Clean Code principles** with **separation of concerns**:
+
 - **Controllers** – Handle API requests and responses.
 - **Services** – Business logic processing.
 - **Repositories** – Data access layer, interacting with the database.
@@ -21,16 +27,21 @@ The system follows **Clean Code principles** with **separation of concerns**:
 - **Database** – PostgreSQL using **EF Core (Code First Approach)**.
 
 ---
+
 ## 🛠️ Tech Stack
+
 - **Backend**: .NET 8, C# 12.0
 - **Database**: PostgreSQL
 - **ORM**: Entity Framework Core
 - **Testing**: xUnit, Moq (for Unit Tests), WebApplicationFactory (for Integration Tests)
 - **Dependency Injection**: Built-in .NET DI
+- **Containerization**: Docker
 
 ---
-## Project Structure
 
+## 📂 Project Structure
+
+- **Build**: Contains `docker-compose.yml` to set up the Docker environment.
 - **Appointment.API**: Contains the API controllers and endpoints.
 - **Appointment.Core**: Contains the core business logic and service interfaces.
 - **Appointment.Domain**: Contains the domain entities.
@@ -39,37 +50,46 @@ The system follows **Clean Code principles** with **separation of concerns**:
 - **Appointment.Tests**: Contains unit tests for the application.
 
 ---
+
 ## 🚀 Setup & Installation
+
 ### **1️⃣ Clone the Repository**
+
 ```sh
-git clone https://github.com/your-repo/appointment-booking.git
-cd appointment-booking
+git clone https://github.com/Vishnujeet/Appointment-Scheduling-App.git
+cd AppointmentBookingSystem
 ```
 
-### **2️⃣ Configure Database**
-Ensure **PostgreSQL** is running and update `appsettings.json` with your connection string:
-```json
-"ConnectionStrings": {
-  "DefaultConnection": "Host=localhost;Port=5432;Database=AppointmentDB;Username=youruser;Password=yourpassword"
-}
-```
+### **2️⃣ Configure Docker Environment**
 
-### **3️⃣ Apply Migrations & Seed Database**
-```sh
-dotnet ef database update
-```
+Ensure **Docker** is installed and running on your system. The application is designed to run inside Docker containers.
 
-### **4️⃣ Run the API**
-```sh
-dotnet run
-```
-The API will start at **http://localhost:3000**
+`build/docker-compose.yml`.
 
 ---
+
+## 🚀 Running the Application
+
+### **1️⃣ Run in Production or local using Docker Compose**
+
+This application is **production-ready** and can be run using `docker-compose.yml` located inside the `Build` folder.
+
+```sh
+docker-compose -f build/docker-compose.yml up --build -d
+```
+
+This will start the application and all required dependencies in a containerized environment.
+
+---
+
 ## 📌 API Endpoints
+
 ### **Get Available Appointment Slots**
+
 📍 **POST** `/calendar/query`
+
 #### **Request Body**
+
 ```json
 {
   "date": "2024-05-03",
@@ -78,7 +98,9 @@ The API will start at **http://localhost:3000**
   "rating": "Gold"
 }
 ```
+
 #### **Response**
+
 ```json
 [
   {
@@ -92,30 +114,48 @@ The API will start at **http://localhost:3000**
 ]
 ```
 
+#### **Possible HTTP Status Codes**
+
+- `200 OK` – Request successful
+- `400 Bad Request` – Invalid input data
+- `500 Internal Server Error` – Unexpected server issue
+
 ---
+
 ## 🧪 Running Tests
+
 ### **Unit Tests**
+
 ```sh
 dotnet test
 ```
+
 ### **Integration Tests**
+
 ```sh
 dotnet test --filter Category=Integration
 ```
 
 ---
+
 ## 🏆 Best Practices Followed
+
 ✅ **SOLID Principles** (Separation of Concerns)  
 ✅ **Repository Pattern** (For maintainability)  
 ✅ **Unit Testing with Stubs**  
 ✅ **Integration Testing with In-Memory DB**  
 ✅ **Dependency Injection** for better testability  
+✅ **Containerized Deployment using Docker**
 
 ---
+
 ## 📜 License
+
 MIT License. Feel free to use and modify this project.
 
 ---
+
 ## 👨‍💻 Author
-**Your Name**  
-GitHub: [yourgithub](https://github.com/yourgithub)
+
+**Vishnujeet**  
+GitHub: [github](https://github.com/Vishnujeet)  
