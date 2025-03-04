@@ -130,7 +130,7 @@ Explore the API endpoints, test requests, and view documentation using Swagger U
       Username=postgres
       Password=mypassword123!
 ```
-- Use this configuration in PgAdmin to connect to the PostgreSQL database which is running on 5050.
+- Use this configuration in PgAdmin to connect to the PostgreSQL database, PgAdmin is running on 5050.
 
 ---
 
