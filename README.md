@@ -93,7 +93,8 @@ This application is designed to run in a **containerized environment** using Doc
 Run the following command to start the application and all its dependencies:
 
 ```sh
-docker-compose -f build/docker-compose.yml up --build -d
+ docker compose build --no-cache
+ docker compose up -d
 ```
 
 This will:
