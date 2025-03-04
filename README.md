@@ -175,9 +175,9 @@ This will gracefully shut down the containers and remove the network.
 ```json
 {
   "date": "2024-05-03",
-  "products": ["SolarPanels", "Heatpumps"],
-  "language": "German",
-  "rating": "Gold"
+  "products": ["Heatpumps"],
+  "language": "English",
+  "rating": "Silver"
 }
 ```
 
@@ -186,12 +186,16 @@ This will gracefully shut down the containers and remove the network.
 ```json
 [
   {
-    "available_count": 1,
-    "start_date": "2024-05-03T10:30:00.00Z"
+    "availableCount": 1,
+    "startDate": "2024-05-03T10:30:00Z"
   },
   {
-    "available_count": 2,
-    "start_date": "2024-05-03T12:00:00.00Z"
+    "availableCount": 1,
+    "startDate": "2024-05-03T11:00:00Z"
+  },
+  {
+    "availableCount": 2,
+    "startDate": "2024-05-03T11:30:00Z"
   }
 ]
 ```
