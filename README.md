@@ -72,7 +72,7 @@ The system follows **Clean Code principles** with **separation of concerns**:
 
 ```sh
 git clone https://github.com/Vishnujeet/Appointment-Scheduling-App.git
-cd AppointmentBookingSystem
+cd Appointment-Scheduling-App
 ```
 
 ### **2️⃣ Configure Docker Environment**
@@ -122,6 +122,15 @@ Explore the API endpoints, test requests, and view documentation using Swagger U
 #### 🐘 PostgreSQL Database
 - The PostgreSQL database is running inside the `db-1` container.
 - It is automatically configured and connected to the application.
+- Connection Configuration:
+```sh
+      Host=db
+      Port=5432
+      Database=coding-challenge
+      Username=postgres
+      Password=mypassword123!
+```
+- Use this configuration in PgAdmin to connect to the PostgreSQL database which is running on 5050.
 
 ---
 
