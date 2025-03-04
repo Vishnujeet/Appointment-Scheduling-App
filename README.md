@@ -1,5 +1,20 @@
 # 📅 Appointment Booking System
 
+## 📑 Table of Contents
+- [Overview](#-overview)
+- [Key Features](#-key-features)
+- [Architecture](#-architecture)
+- [Tech Stack](#-tech-stack)
+- [Project Structure](#-project-structure)
+- [Setup & Installation](#-setup--installation)
+- [Running the Application](#-running-the-application)
+- [API Endpoints](#-api-endpoints)
+- [Running Tests](#-running-tests)
+- [Best Practices Followed](#-best-practices-followed)
+- [TODO](#-todo)
+- [License](#-license)
+- [Author](#-author)
+
 ## 🚀 Overview
 
 This is a **backend API** for an **Appointment Booking System**, allowing customers to book appointments with sales managers based on language, product, and customer rating criteria.
@@ -68,17 +83,75 @@ Ensure **Docker** is installed and running on your system. The application is de
 
 ---
 
-## 🚀 Running the Application
+## 🐳 Running the Application with Docker
 
-### **1️⃣ Run in Production or local using Docker Compose**
+This application is designed to run in a **containerized environment** using Docker. Follow the steps below to start the application and access its components.
 
-This application is **production-ready** and can be run using `docker-compose.yml` located inside the `Build` folder.
+---
+
+### **1️⃣ Start the Application**
+Run the following command to start the application and all its dependencies:
 
 ```sh
 docker-compose -f build/docker-compose.yml up --build -d
 ```
 
-This will start the application and all required dependencies in a containerized environment.
+This will:
+- Build the Docker images (if not already built).
+- Start the application and all required services in detached mode.
+
+![alt text](image-1.png)
+
+---
+
+### **2️⃣ Access the Services**
+Once the containers are up and running, you can access the following services:
+
+#### 📊 PGAdmin (Database Management)
+- **URL:** [http://localhost:5050](http://localhost:5050)
+- **Username:** `admin@example.com`
+- **Password:** `admin`
+
+Use PGAdmin to manage and monitor your PostgreSQL database.
+
+#### 📄 Swagger UI (API Documentation)
+- **URL:** [http://localhost:8080/swagger/index.html](http://localhost:8080/swagger/index.html)
+
+Explore the API endpoints, test requests, and view documentation using Swagger UI.
+
+#### 🐘 PostgreSQL Database
+- The PostgreSQL database is running inside the `db-1` container.
+- It is automatically configured and connected to the application.
+
+---
+
+### **3️⃣ Verify the Setup**
+Ensure all containers are running by checking Docker logs:
+
+```sh
+docker-compose logs -f
+```
+
+Access the services via the provided URLs and verify their functionality.
+
+---
+
+### **4️⃣ Stop the Application**
+To stop the application and all containers, run:
+
+```sh
+docker-compose -f build/docker-compose.yml down
+```
+
+This will gracefully shut down the containers and remove the network.
+
+---
+
+### ✅ Additional Notes
+- Ensure Docker and Docker Compose are installed before running the commands.
+- Modify `docker-compose.yml` if you need to change configurations.
+- Run `docker ps` to check running containers.
+
 
 ---
 
@@ -146,6 +219,22 @@ dotnet test --filter Category=Integration
 ✅ **Integration Testing with In-Memory DB**  
 ✅ **Dependency Injection** for better testability  
 ✅ **Containerized Deployment using Docker**
+
+---
+
+## 📝 TODO
+list of upcoming features, improvements, and fixes:
+
+### **Features**
+- [ ] Add authentication and authorization (e.g., JWT or OAuth).
+- [ ] Implement a frontend interface for better user interaction.
+- [ ] Add email/SMS notifications for appointment confirmations.
+- [ ] Implement an **API Gateway** for routing, load balancing, and API management.
+
+### **Improvements**
+- [ ] Optimize database queries for better performance..
+
+### **Fixes**
 
 ---
 
